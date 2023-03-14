@@ -48,7 +48,7 @@ else:
         'localhost',
     ]
 
-#Adding HOSTNAME render external
+#Adding HOSTNAME render external (to deploy our project at the end)
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
@@ -58,6 +58,7 @@ if RENDER_EXTERNAL_HOSTNAME:
 
 # Application definition
 
+#Default apps
 DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -78,6 +79,15 @@ THIRD_PARTY_APPS = [
 
 #Config extructure of apps 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
+
+#Config CKEDITOR
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'autoParagraph': False
+    }
+}
+CKEDITOR_UPLOAD_PATH = "/media/"
 
 
 MIDDLEWARE = [
