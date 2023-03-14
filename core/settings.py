@@ -144,6 +144,35 @@ DATABASES = {
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 
+#Config 
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',
+    'http://localhost:8000',
+    'http://127.0.0.1:3000',
+    'http://127.0.0.1:8000'
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:3000',
+    'http://localhost:8000',
+    'http://127.0.0.1:3000',
+    'http://127.0.0.1:8000'
+]
+
+if not DEBUG:
+    CORS_ORIGIN_WHITELIST = [
+        'https://mediasoft.com',
+        'https://admin.mediasoft.com',
+        'https://blog.mediasoft.com',
+    ]
+
+    CSRF_TRUSTED_ORIGINS = [
+        'https://mediasoft.com',
+        'https://admin.mediasoft.com',
+        'https://blog.mediasoft.com',
+    ]
+
+
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
