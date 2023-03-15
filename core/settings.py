@@ -144,7 +144,7 @@ DATABASES = {
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 
-#Config 
+#Configure requests by adding Cors and protection against malicious CSRF attacks
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
     'http://localhost:8000',
@@ -171,6 +171,14 @@ if not DEBUG:
         'https://admin.mediasoft.com',
         'https://blog.mediasoft.com',
     ]
+
+#Adding Passwords Hashers a for security of Database
+PASSWORD_HASHERS = [
+    "django.contrib.auth.hashers.Argon2PasswordHasher",
+    "django.contrib.auth.hashers.PBKDF2PasswordHasher",
+    "django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher",
+    "django.contrib.auth.hashers.BCryptSHA256PasswordHasher",
+]
 
 
 # Password validation
