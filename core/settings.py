@@ -245,3 +245,17 @@ REST_FRAMEWORK = {
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
+
+FILE_UPLOAD_PERMISSIONS = 0o640
+
+#Configure Email Backend from console
+EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
+#Configure Email Backend for production
+if not DEBUG:
+    DEFAULT_FROM_EMAIL="Mediasoft <yourmediasoft@gmail.com>"
+    EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = env('EMAIL_HOST')
+    EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+    EMAIL_PORT = env('EMAIL_PORT')
+    EMAIL_USE_TLS = env('EMAIL_USE_TLS')
