@@ -23,6 +23,12 @@ class BlogListView(APIView):
             return Response({'error': 'Posts not found!'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
 
+class PostDetailView(APIView):
+    def get(self,request,post_slug,format=None):
+        post=get_object_or_404(Post, slug=post_slug)
+        serializer=PostSerializer(post)
+        return Response({'post': serializer.data}, status=status.HTTP_200_OK)
+        
 
 
         
