@@ -31,6 +31,7 @@ class Post(models.Model):
     content=models.TextField()
     excerpt=models.CharField(max_length=100)
 
+    #author=models.CharField(max_length=100)
     category=models.ForeignKey(Category, on_delete=models.PROTECT)
 
     published=models.DateTimeField(default=timezone.now)

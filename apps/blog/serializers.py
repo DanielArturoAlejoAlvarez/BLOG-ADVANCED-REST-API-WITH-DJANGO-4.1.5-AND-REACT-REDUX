@@ -5,7 +5,7 @@ from apps.category.serializers import CategorySerializer
 class PostSerializer(serializers.ModelSerializer):
     thumbnail=serializers.CharField(source='get_thumbnail')
     video=serializers.CharField(source='get_video')
-    category=CategorySerializer
+    category=CategorySerializer()
 
     class Meta:
         model=Post
