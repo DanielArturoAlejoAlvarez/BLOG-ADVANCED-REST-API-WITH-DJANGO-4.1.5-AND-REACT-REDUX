@@ -32,3 +32,18 @@ class Post(models.Model):
         published=models.DateTimeField(default=timezone.now)
         status=models.CharField(max_length=10, choices=options, default='draft')
 
+
+        class Meta:
+            oredering=('-published',)
+
+        def __str__(self):
+            return self.title
+        
+        def get_video(self):
+            if self.video:
+                return self.video.url
+            
+        def get_thumbnail(self):
+            if self.thumbnail:
+                return self.thumbnail.url
+
