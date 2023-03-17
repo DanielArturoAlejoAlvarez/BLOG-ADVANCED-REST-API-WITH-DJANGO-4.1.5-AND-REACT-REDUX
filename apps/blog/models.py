@@ -41,7 +41,7 @@ class Post(models.Model):
     postobjects=PostObjects()
 
     class Meta:
-        oredering=('-published',)
+        ordering=('-published',)
 
     def __str__(self):
         return self.title
