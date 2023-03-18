@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 function Home() {
   return (
     <FullWidthLayout>
-        <h1>Home</h1>
+        Home
     </FullWidthLayout>
   )
 }
