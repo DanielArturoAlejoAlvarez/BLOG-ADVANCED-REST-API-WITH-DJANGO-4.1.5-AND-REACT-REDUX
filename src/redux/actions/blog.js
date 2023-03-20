@@ -62,3 +62,29 @@ export const get_blog_list_page = (p)=> async (dispatch)=>{
     }
 }
 
+export const get_blog = (slug)=> async (dispatch)=>{
+    const config = {
+        headers: {
+            Accept: "application/json"
+        }
+    }
+
+    try {
+        const resp = await axios.get(`${process.env.REACT_APP_API_URL}/api/blog/${slug}`, config)
+        if (resp.status === 200) {
+            dispatch({
+                type: GET_BLOG_SUCCESS,
+                payload: resp.data
+            })
+        }else{
+            dispatch({
+                type: GET_BLOG_FAIL
+            })
+        }
+    } catch (error) {
+        console.log(error)
+        dispatch({
+            type: GET_BLOG_FAIL
+        })
+    }
+}
