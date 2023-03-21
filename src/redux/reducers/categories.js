@@ -22,6 +22,7 @@ export default function categories(state=initialState, action){
                 categories: null
             }
     
-        default: state
+        default:
+            return state
     }
 }
