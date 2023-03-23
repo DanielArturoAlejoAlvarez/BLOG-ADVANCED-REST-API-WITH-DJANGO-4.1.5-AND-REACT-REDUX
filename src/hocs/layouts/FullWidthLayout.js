@@ -4,11 +4,11 @@ import { connect } from "react-redux"
 
 function FullWidthLayout({children}) {
   return (
-    <div>
+    <>
       <NavBar />
         {children}
       <Footer />
-    </div>
+    </>
   )
 }
 

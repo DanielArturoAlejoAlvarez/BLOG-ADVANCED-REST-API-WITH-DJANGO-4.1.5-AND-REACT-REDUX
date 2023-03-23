@@ -3,6 +3,7 @@ import { Menu, Popover, Transition } from '@headlessui/react'
 import { SearchIcon } from '@heroicons/react/solid'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import { connect } from 'react-redux'
+import { NavLink } from 'react-router-dom'
 
 const user = {
   name: 'Daniel Alejo Alvarez',
@@ -45,13 +46,13 @@ function NavBar() {
               <div className="relative flex justify-between xl:grid xl:grid-cols-12 lg:gap-8">
                 <div className="flex md:absolute md:left-0 md:inset-y-0 lg:static xl:col-span-2">
                   <div className="flex-shrink-0 flex items-center">
-                    <a href="#">
+                    <NavLink to="/">
                       <img
                         className="block h-10 w-auto"
                         src="https://m.media-amazon.com/images/I/81Z+-D8TuwL.png"
                         alt="Mediasoft"
                       />
-                    </a>
+                    </NavLink>
                   </div>
                 </div>
                 <div className="min-w-0 flex-1 md:px-8 lg:px-0 xl:col-span-6">

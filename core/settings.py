@@ -41,12 +41,12 @@ DEBUG = True
 #Configure ALLOWED_HOST permissions urls
 if not DEBUG:
     ALLOWED_HOSTS = [
-        'www.mediasoft.com',
+        'mediasoft.com'
     ]
 else:
     ALLOWED_HOSTS = [
         '127.0.0.1',
-        'localhost',
+        'localhost'
     ]
 
 #Adding HOSTNAME render external (to deploy our project at the end)
@@ -92,6 +92,7 @@ CKEDITOR_UPLOAD_PATH = "/media/"
 
 
 MIDDLEWARE = [
+    
      #Adding Corsheaders
     'corsheaders.middleware.CorsMiddleware',
 
@@ -136,13 +137,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': BASE_DIR / 'db.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
         #We will use PostgreSQL when deploying
     }
 }
 
 #DB Atomic requests permit not duplication
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
+
 
 
 #Configure requests by adding Cors and protection against malicious CSRF attacks

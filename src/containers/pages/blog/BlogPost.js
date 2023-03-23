@@ -1,16 +1,23 @@
 import FullWidthLayout from 'hocs/layouts/FullWidthLayout'
 import { useEffect } from 'react'
 import { connect } from 'react-redux'
-//import { get_blog_list, get_blog_list_page } from 'redux/actions/blog'
+import { useParams } from 'react-router-dom'
+import { get_blog } from 'redux/actions/blog'
 
-function Home({
-  
+function BlogPost({
+  get_blog
 }) {
 
+  const params = useParams()
+  const {slug} = params
+
+  useEffect(() => {
+    get_blog(slug)
+  }, [])
   
   return (
     <FullWidthLayout>
-        Home
+        Blog Post
     </FullWidthLayout>
   )
 }
@@ -20,5 +27,5 @@ const mapStateToProps = state=>({
 })
 
 export default connect(mapStateToProps, {
-
-})(Home)
+  get_blog
+})(BlogPost)

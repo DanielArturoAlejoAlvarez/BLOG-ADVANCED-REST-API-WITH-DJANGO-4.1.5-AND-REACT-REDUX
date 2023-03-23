@@ -1,0 +1,29 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+
+[dev-packages]
+django = "*"
+django-redis = "*"
+celery = "*"
+channels = "*"
+django-cors-headers = "*"
+django-environ = "*"
+djangorestframework = "*"
+django-ckeditor = "*"
+pytz = "*"
+pillow = "*"
+mutagen = "*"
+psycopg2-binary = "*"
+argon2-cffi = "*"
+boto3 = "*"
+django-storages = "*"
+gunicorn = "*"
+whitenoise = "*"
+requests = "*"
+
+[requires]
+python_version = "3.8"

@@ -9,12 +9,14 @@ import {
 export const get_categories = ()=> async (dispatch)=>{
     const config = {
         headers: {
-            Accept: "application/json"
+            Accept: 'application/json'
         }
     }
 
     try {
-        const resp = axios.get(`${process.env.REACT_APP_API_URL/api/category/categories}`, config)
+        const resp = axios.get(
+            `${process.env.REACT_APP_API_URL}/api/category/categories`,
+             config)
         if (resp.status === 200) {
             dispatch({
                 type: GET_CATEGORIES_SUCCESS,

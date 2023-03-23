@@ -18,7 +18,7 @@ class Post(models.Model):
         
     options=(
         ('draft','Draft'),
-        ('piblished','Published')
+        ('published','Published')
     )
 
 
@@ -49,8 +49,10 @@ class Post(models.Model):
     def get_video(self):
         if self.video:
             return self.video.url
+        return ''
         
     def get_thumbnail(self):
         if self.thumbnail:
             return self.thumbnail.url
+        return ''
 
