@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
-function Card(data) {
-  const post = data && data.data
-  const base = process.env.REACT_APP_API_URL
+function BlogCard(data) {
+  const post = data && data.data;
+  const base = process.env.REACT_APP_API_URL;
 
   return (
     <>
@@ -17,7 +17,10 @@ function Card(data) {
         <div className="flex-1 bg-white p-6 flex flex-col justify-between">
           <div className="flex-1">
             <p className="text-sm font-medium text-indigo-600">
-              <Link to={`/blog/categories/${post.category.id}`} className="hover:underline">
+              <Link
+                to={`/blog/categories/${post.category.id}`}
+                className="hover:underline"
+              >
                 {post.category.name}
               </Link>
             </p>
@@ -55,7 +58,7 @@ function Card(data) {
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default Card
+export default BlogCard;

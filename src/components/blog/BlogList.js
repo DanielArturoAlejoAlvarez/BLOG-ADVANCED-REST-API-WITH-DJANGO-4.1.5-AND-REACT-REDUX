@@ -1,8 +1,8 @@
-import Card from "components/Card";
 import BlogSkeletonLoader from "components/loaders/BlogSkeletonLoader";
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import { get_blog_list, get_blog_list_page } from "redux/actions/blog";
+import BlogCard from "./BlogCard";
 
 function BlogList({ 
   get_blog_list, 
@@ -22,7 +22,7 @@ function BlogList({
           <div className="relative max-w-7xl mx-auto">
             <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
               {blog_list.map((post) => (
-                <Card data={post} />
+                <BlogCard data={post} />
               ))}
             </div>
           </div>
