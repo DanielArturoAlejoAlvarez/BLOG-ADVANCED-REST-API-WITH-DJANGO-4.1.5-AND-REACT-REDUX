@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { connect } from "react-redux";
 import { get_blog_list, get_blog_list_page } from "redux/actions/blog";
 import BlogCard from "./BlogCard";
+import BlogPaginator from "components/pagination/BlogPaginator";
 
 function BlogList({ 
   get_blog_list, 
@@ -25,6 +26,7 @@ function BlogList({
                 <BlogCard data={post} />
               ))}
             </div>
+            <BlogPaginator />
           </div>
         </div>
       ) : (
