@@ -13,9 +13,9 @@ const user = {
 }
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
-  { name: 'Calendar', href: '#', current: false },
-  { name: 'Teams', href: '#', current: false },
-  { name: 'Directory', href: '#', current: false },
+  { name: 'Blog', href: '#', current: false },
+  { name: 'About', href: '#', current: false },
+  { name: 'Contact', href: '#', current: false },
 ]
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
@@ -87,17 +87,37 @@ function NavBar() {
                     )}
                   </Popover.Button>
                 </div>
+
+                
+
+
                 <div className="hidden lg:flex lg:items-center lg:justify-end xl:col-span-4">
-                  <a
+                  
+                  
+                  {/*Menu Web*/}
+                  <div className="hidden lg:flex lg:items-center lg:justify-end xl:col-span-4">
+                      <NavLink to="/blog" className="text-lg dark:hover:text-white hover:text-gray-900 text-gray-600 dark:text-dark-txt text-md font-semibold">
+                          Blog
+                      </NavLink>
+                      <NavLink to="/about" className="mx-4 text-lg dark:hover:text-white hover:text-gray-900 text-gray-600 dark:text-dark-txt text-md font-semibold">
+                          About
+                      </NavLink>
+                      <NavLink to="/contact" className="text-lg dark:hover:text-white hover:text-gray-900 text-gray-600 dark:text-dark-txt text-md font-semibold">
+                          Contact
+                      </NavLink>
+                  </div>
+                 
+                 
+                  {/* <a
                     href="#"
                     className="ml-5 flex-shrink-0 bg-white rounded-full p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
                     <span className="sr-only">View notifications</span>
                     <BellIcon className="h-6 w-6" aria-hidden="true" />
-                  </a>
+                  </a> */}
 
                   {/* Profile dropdown */}
-                  <Menu as="div" className="flex-shrink-0 relative ml-5">
+                  {/* <Menu as="div" className="flex-shrink-0 relative ml-5">
                     <div>
                       <Menu.Button className="bg-white rounded-full flex focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         <span className="sr-only">Open user menu</span>
@@ -131,14 +151,14 @@ function NavBar() {
                         ))}
                       </Menu.Items>
                     </Transition>
-                  </Menu>
+                  </Menu> */}
 
-                  <a
+                  {/* <a
                     href="#"
                     className="ml-6 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
                     New Project
-                  </a>
+                  </a> */}
                 </div>
               </div>
             </div>
