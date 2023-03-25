@@ -127,3 +127,30 @@ export const get_blog_category_list = (category_id) => async (dispatch) => {
   }
 };
 
+export const get_blog_category_list_page = (category_id,p)=> async (dispatch)=>{
+  const config = {
+      headers: {
+          Accept: 'application/json'
+      }
+  }
+
+  try {
+      const resp = await axios.get(`${process.env.REACT_APP_API_URL}/api/blog/category/${category_id}/?p=${p}`, config)
+      if (resp.status === 200) {
+          dispatch({
+              type: GET_BLOG_LIST_CATEGORIES_SUCCESS,
+              payload: resp.data
+          })
+      }else{
+          dispatch({
+              type: GET_BLOG_LIST_CATEGORIES_FAIL
+          })
+      }
+  } catch (error) {
+      console.log(error)
+      dispatch({
+          type: GET_BLOG_LIST_CATEGORIES_FAIL
+      })
+  }
+}
+
