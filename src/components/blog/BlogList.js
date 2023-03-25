@@ -26,7 +26,7 @@ function BlogList({
                 <BlogCard data={post} />
               ))}
             </div>
-            <BlogPaginator />
+            <BlogPaginator get_blog_list_page={get_blog_list_page} />
           </div>
         </div>
       ) : (
