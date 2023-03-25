@@ -1,4 +1,5 @@
 import Header from 'components/Header'
+import BlogCategories from 'components/blog/BlogCategories'
 import BlogList from 'components/blog/BlogList'
 import FullWidthLayout from 'hocs/layouts/FullWidthLayout'
 import { useEffect } from 'react'
@@ -14,7 +15,8 @@ function Blog({
   
   return (
     <FullWidthLayout>
-      <Header /> 
+      <Header />
+      <BlogCategories />
       <BlogList />
     </FullWidthLayout>
   )

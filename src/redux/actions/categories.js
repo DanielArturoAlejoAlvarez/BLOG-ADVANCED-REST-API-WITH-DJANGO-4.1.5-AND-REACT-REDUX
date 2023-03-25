@@ -14,7 +14,7 @@ export const get_categories = ()=> async (dispatch)=>{
     }
 
     try {
-        const resp = axios.get(
+        const resp = await axios.get(
             `${process.env.REACT_APP_API_URL}/api/category/categories`,
              config)
         if (resp.status === 200) {
@@ -24,16 +24,14 @@ export const get_categories = ()=> async (dispatch)=>{
             })
         }else{
             dispatch({
-                type: GET_CATEGORIES_FAIL,
-                payload: resp.data
+                type: GET_CATEGORIES_FAIL
             }) 
         }
 
     } catch (error) {
         console.log(error)
         dispatch({
-            type: GET_CATEGORIES_FAIL,
-            payload: resp.data
+            type: GET_CATEGORIES_FAIL
         }) 
     }
 

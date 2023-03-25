@@ -41,7 +41,7 @@ function BlogPaginator({ get_blog_list_page, blog_list, count }) {
     let pageNumber = 1;
 
     for (let index = 0; index < count; index += itemsPerPage) {
-      let page = pageNumber;
+      const page = pageNumber;
       let content = null;
 
       if (active === page) {
@@ -55,7 +55,7 @@ function BlogPaginator({ get_blog_list_page, blog_list, count }) {
           </div>
         );
       } else {
-        content(
+        content = (
           <div
             key={index}
             onClick={() => {
