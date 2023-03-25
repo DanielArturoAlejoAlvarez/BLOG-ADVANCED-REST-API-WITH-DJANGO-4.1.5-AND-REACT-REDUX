@@ -1,5 +1,7 @@
 import { 
     GET_BLOG_FAIL,
+    GET_BLOG_LIST_CATEGORIES_FAIL,
+    GET_BLOG_LIST_CATEGORIES_SUCCESS,
     GET_BLOG_LIST_FAIL, 
     GET_BLOG_LIST_SUCCESS, 
     GET_BLOG_SUCCESS
@@ -94,4 +96,34 @@ export const get_blog = (slug)=> async (dispatch)=>{
     }
 }
 
+
+export const get_blog_category_list = (category_id) => async (dispatch) => {
+  const config = {
+      headers: {
+        Accept: 'application/json'
+      }
+    };
+
+  try {
+    const resp = await axios.get(
+      `${process.env.REACT_APP_API_URL}/api/blog/category/${category_id}`,
+      config
+    );
+    
+    if (resp.status === 200) {
+      dispatch({
+        type: GET_BLOG_LIST_CATEGORIES_SUCCESS,
+        payload: resp.data
+      });
+    } else {
+      dispatch({
+        type: GET_BLOG_LIST_CATEGORIES_FAIL
+      });
+    }
+  } catch (error) {
+    dispatch({
+      type: GET_BLOG_LIST_CATEGORIES_FAIL
+    });
+  }
+};
 
