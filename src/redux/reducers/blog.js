@@ -1,11 +1,14 @@
 import { 
     GET_BLOG_FAIL,
+    GET_BLOG_LIST_CATEGORIES_FAIL,
+    GET_BLOG_LIST_CATEGORIES_SUCCESS,
     GET_BLOG_LIST_FAIL,
     GET_BLOG_LIST_SUCCESS, GET_BLOG_SUCCESS 
 } from "redux/types/blog";
 
 const initialState = {
     blog_list: null,
+    blog_category_list: null,
     post: null,
     count: null,
     next: null,
@@ -41,6 +44,22 @@ export default function blog(state=initialState, action){
             return {
                 ...state,
                 post: null
+            }
+        case GET_BLOG_LIST_CATEGORIES_SUCCESS:
+            return {
+                ...state,
+                blog_category_list: payload.results.posts,
+                count: payload.count,
+                next: payload.next,
+                previous: payload.previous
+            }
+        case GET_BLOG_LIST_CATEGORIES_FAIL:
+            return {
+                ...state,
+                blog_category_list: null,
+                count: null,
+                next: null,
+                previous: null
             }
     
         default:
