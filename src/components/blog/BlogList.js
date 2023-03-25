@@ -8,7 +8,8 @@ import BlogPaginator from "components/pagination/BlogPaginator";
 function BlogList({ 
   get_blog_list, 
   get_blog_list_page, 
-  blog_list }) {
+  blog_list,
+  count }) {
   useEffect(() => {
     get_blog_list();
   }, []);
@@ -26,7 +27,7 @@ function BlogList({
                 <BlogCard data={post} />
               ))}
             </div>
-            <BlogPaginator get_blog_list_page={get_blog_list_page} />
+            <BlogPaginator get_blog_list_page={get_blog_list_page} blog_list={blog_list} count={count} />
           </div>
         </div>
       ) : (
@@ -37,7 +38,8 @@ function BlogList({
 }
 
 const mapStateToProps = (state) => ({
-  blog_list: state.blog.blog_list
+  blog_list: state.blog.blog_list,
+  count: state.blog.count
 });
 
 export default connect(mapStateToProps, {
