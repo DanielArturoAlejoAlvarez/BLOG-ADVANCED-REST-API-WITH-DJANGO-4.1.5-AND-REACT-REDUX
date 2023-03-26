@@ -4,7 +4,9 @@ import {
   GET_BLOG_LIST_CATEGORIES_SUCCESS,
   GET_BLOG_LIST_FAIL,
   GET_BLOG_LIST_SUCCESS,
-  GET_BLOG_SUCCESS
+  GET_BLOG_SUCCESS,
+  GET_SEARCH_BLOG_FAIL,
+  GET_SEARCH_BLOG_SUCCESS
 } from "redux/types/blog";
 
 const initialState = {
@@ -13,7 +15,8 @@ const initialState = {
   post: null,
   count: null,
   next: null,
-  previous: null
+  previous: null,
+  filtered_posts: null
 };
 
 export default function blog(state = initialState, action) {
@@ -61,6 +64,16 @@ export default function blog(state = initialState, action) {
         count: null,
         next: null,
         previous: null
+      };
+    case GET_SEARCH_BLOG_SUCCESS:
+      return {
+        ...state,
+        filtered_posts: payload.filtered_posts
+      };
+    case GET_SEARCH_BLOG_FAIL:
+      return {
+        ...state,
+        filtered_posts: null
       };
 
     default:

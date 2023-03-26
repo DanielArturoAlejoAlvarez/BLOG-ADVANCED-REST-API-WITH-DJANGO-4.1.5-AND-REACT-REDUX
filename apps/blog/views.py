@@ -9,6 +9,7 @@ from apps.category.models import Category
 from .serializers import PostSerializer
 from .pagination import SmallSetPagination,MediumSetPagination,LargeSetPagination
 
+from django.db.models.query_utils import Q
 
 class BlogListView(APIView):
     def get(self,request,format=None):
@@ -46,6 +47,23 @@ class BlogListCategoryView(APIView):
         else:
             return Response({'error': 'Posts not found!'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
        
+       
+class BlogAdvancedSearchTermView(APIView):
+    def get(self,request,search_term):
+        matches=Post.postobjects.filter(
+            Q(title__icontains=search_term) |
+            Q(content__icontains=search_term) |
+            Q(category__name__icontains=search_term)
+        )
+        
+        paginator=MediumSetPagination()
+        #results=paginator.paginate_queryset(matches,request)
+        serializer=PostSerializer(matches, many=True)
+        
+        return Response({
+            'filtered_posts': serializer.data
+        }, status=status.HTTP_200_OK)
+        
         
 
         
