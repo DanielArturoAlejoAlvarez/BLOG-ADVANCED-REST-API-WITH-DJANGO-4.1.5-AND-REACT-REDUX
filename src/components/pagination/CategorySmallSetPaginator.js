@@ -1,19 +1,25 @@
-import {
-  ArrowNarrowLeftIcon,
-  ArrowNarrowRightIcon
-} from "@heroicons/react/outline";
 import { useState } from "react";
 
-function BlogPaginator({ get_blog_list_page, blog_list, count }) {
+import {
+    ArrowNarrowLeftIcon,
+    ArrowNarrowRightIcon
+} from "@heroicons/react/outline";
+
+export default function CategorySmallSetPaginator({
+  get_blog_list_page,
+  blog_list,
+  count,
+  category_id
+}) {
   const [active, setActive] = useState(1);
   const [listingPerPage, setListingPerPage] = useState(6);
   const [currentPage, setCurrentPage] = useState(1);
 
   const visitPage = (page) => {
     window.scrollTo(0, 0);
-    setActive(page);
     setCurrentPage(page);
-    get_blog_list_page(page);
+    setActive(page);
+    get_blog_list_page(category_id, page);
   };
 
   const previousNumber = () => {
@@ -21,7 +27,7 @@ function BlogPaginator({ get_blog_list_page, blog_list, count }) {
     if (currentPage !== 1) {
       setCurrentPage(currentPage - 1);
       setActive(currentPage - 1);
-      get_blog_list_page(currentPage - 1);
+      get_blog_list_page(category_id, currentPage - 1);
     }
   };
 
@@ -30,25 +36,23 @@ function BlogPaginator({ get_blog_list_page, blog_list, count }) {
     if (currentPage !== Math.ceil(blog_list.length / 3)) {
       setCurrentPage(currentPage + 1);
       setActive(currentPage + 1);
-      get_blog_list_page(currentPage + 1);
+      get_blog_list_page(category_id, currentPage + 1);
     }
   };
 
-  let numbers = []
+  let numbers = [];
 
   const getNumbers = () => {
     let itemsPerPage = listingPerPage;
     let pageNumber = 1;
 
-    for (let index = 0; index < count; index += itemsPerPage) {
+    for (let i = 0; i < count; i += itemsPerPage) {
       const page = pageNumber;
       let content = null;
 
       if (active === page) {
         content = (
-          <div 
-            key={index} 
-            className={`hidden md:-mt-px md:flex`}>
+          <div key={i} className={`hidden md:-mt-px md:flex`}>
             <div className="border-indigo-500 text-indigo-600 border-t-2 pt-4 px-4 inline-flex items-center text-sm font-medium">
               {pageNumber}
             </div>
@@ -57,7 +61,7 @@ function BlogPaginator({ get_blog_list_page, blog_list, count }) {
       } else {
         content = (
           <div
-            key={index}
+            key={i}
             onClick={() => {
               visitPage(page);
             }}
@@ -70,17 +74,20 @@ function BlogPaginator({ get_blog_list_page, blog_list, count }) {
         );
       }
 
-      numbers.push(content)
-      pageNumber++
+      numbers.push(content);
+      pageNumber++;
     }
-    return numbers
+
+    return numbers;
   };
 
   return (
     <nav className="border-t border-gray-200 px-4 flex items-center justify-between sm:px-0">
       <div className="-mt-px w-0 flex-1 flex">
         <button
-          onClick={() => previousNumber()}
+          onClick={() => {
+            previousNumber();
+          }}
           className="border-t-2 border-transparent pt-4 pr-1 inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300"
         >
           <ArrowNarrowLeftIcon
@@ -90,12 +97,14 @@ function BlogPaginator({ get_blog_list_page, blog_list, count }) {
           Previous
         </button>
       </div>
-      
-    {getNumbers()}
-       
+
+      {getNumbers()}
+
       <div className="-mt-px w-0 flex-1 flex justify-end">
         <button
-          onClick={() => nextNumber()}
+          onClick={() => {
+            nextNumber();
+          }}
           className="border-t-2 border-transparent pt-4 pl-1 inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300"
         >
           Next
@@ -108,5 +117,3 @@ function BlogPaginator({ get_blog_list_page, blog_list, count }) {
     </nav>
   );
 }
-
-export default BlogPaginator;

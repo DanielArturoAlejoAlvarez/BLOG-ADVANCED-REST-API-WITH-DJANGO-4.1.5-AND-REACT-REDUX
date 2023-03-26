@@ -1,6 +1,6 @@
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import store from './store'
+import store from "./store";
 import Error404 from "containers/errors/Error404";
 import Home from "containers/pages/Home";
 import Blog from "containers/pages/blog/Blog";
@@ -14,7 +14,7 @@ function App() {
     <Provider store={store}>
       <Router>
         <Routes>
-          <Route path="*" element={<Error404 />}/>
+          <Route path="*" element={<Error404 />} />
           <Route path="/" element={<Home />} />
 
           <Route path="/about" element={<About />} />
@@ -22,12 +22,14 @@ function App() {
 
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/post/:slug" element={<BlogPost />} />
-          <Route path="/blog/categories/:category_id" element={<BlogCategory />} />
+          <Route
+            path="/blog/categories/:category_id"
+            element={<BlogCategory />}
+          />
         </Routes>
       </Router>
     </Provider>
   );
 }
-
 
 export default App;

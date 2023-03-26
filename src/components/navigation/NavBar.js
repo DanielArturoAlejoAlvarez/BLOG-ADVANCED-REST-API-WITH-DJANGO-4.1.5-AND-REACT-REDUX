@@ -1,30 +1,30 @@
-import { Fragment } from 'react'
-import { Menu, Popover, Transition } from '@headlessui/react'
-import { SearchIcon } from '@heroicons/react/solid'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
-import { connect } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { Fragment } from "react";
+import { Menu, Popover, Transition } from "@headlessui/react";
+import { SearchIcon } from "@heroicons/react/solid";
+import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 const user = {
-  name: 'Daniel Alejo Alvarez',
-  email: 'yourmediasoft@gmail.com',
+  name: "Daniel Alejo Alvarez",
+  email: "yourmediasoft@gmail.com",
   imageUrl:
-    'https://media.licdn.com/dms/image/C5603AQEnesLTMhc09Q/profile-displayphoto-shrink_800_800/0/1517597364770?e=2147483647&v=beta&t=sfmDWKynqh0GOOisnwCWsLvSz1I6Ra2Bfx_UY1mRGww',
-}
+    "https://media.licdn.com/dms/image/C5603AQEnesLTMhc09Q/profile-displayphoto-shrink_800_800/0/1517597364770?e=2147483647&v=beta&t=sfmDWKynqh0GOOisnwCWsLvSz1I6Ra2Bfx_UY1mRGww"
+};
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Blog', href: '#', current: false },
-  { name: 'About', href: '#', current: false },
-  { name: 'Contact', href: '#', current: false },
-]
+  { name: "Dashboard", href: "#", current: true },
+  { name: "Blog", href: "#", current: false },
+  { name: "About", href: "#", current: false },
+  { name: "Contact", href: "#", current: false }
+];
 const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
-]
+  { name: "Your Profile", href: "#" },
+  { name: "Settings", href: "#" },
+  { name: "Sign out", href: "#" }
+];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 function NavBar() {
@@ -35,8 +35,8 @@ function NavBar() {
         as="header"
         className={({ open }) =>
           classNames(
-            open ? 'fixed inset-0 z-40 overflow-y-auto' : '',
-            'bg-white shadow-sm lg:static lg:overflow-y-visible'
+            open ? "fixed inset-0 z-40 overflow-y-auto" : "",
+            "bg-white shadow-sm lg:static lg:overflow-y-visible"
           )
         }
       >
@@ -63,7 +63,10 @@ function NavBar() {
                       </label>
                       <div className="relative">
                         <div className="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
-                          <SearchIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                          <SearchIcon
+                            className="h-5 w-5 text-gray-400"
+                            aria-hidden="true"
+                          />
                         </div>
                         <input
                           id="search"
@@ -88,26 +91,29 @@ function NavBar() {
                   </Popover.Button>
                 </div>
 
-                
-
-
                 <div className="hidden lg:flex lg:items-center lg:justify-end xl:col-span-4">
-                  
-                  
                   {/*Menu Web*/}
                   <div className="hidden lg:flex lg:items-center lg:justify-end xl:col-span-4">
-                      <NavLink to="/blog" className="text-lg dark:hover:text-white hover:text-gray-900 text-gray-600 dark:text-dark-txt text-md font-semibold">
-                          Blog
-                      </NavLink>
-                      <NavLink to="/about" className="mx-4 text-lg dark:hover:text-white hover:text-gray-900 text-gray-600 dark:text-dark-txt text-md font-semibold">
-                          About
-                      </NavLink>
-                      <NavLink to="/contact" className="text-lg dark:hover:text-white hover:text-gray-900 text-gray-600 dark:text-dark-txt text-md font-semibold">
-                          Contact
-                      </NavLink>
+                    <NavLink
+                      to="/blog"
+                      className="text-lg dark:hover:text-white hover:text-gray-900 text-gray-600 dark:text-dark-txt text-md font-semibold"
+                    >
+                      Blog
+                    </NavLink>
+                    <NavLink
+                      to="/about"
+                      className="mx-4 text-lg dark:hover:text-white hover:text-gray-900 text-gray-600 dark:text-dark-txt text-md font-semibold"
+                    >
+                      About
+                    </NavLink>
+                    <NavLink
+                      to="/contact"
+                      className="text-lg dark:hover:text-white hover:text-gray-900 text-gray-600 dark:text-dark-txt text-md font-semibold"
+                    >
+                      Contact
+                    </NavLink>
                   </div>
-                 
-                 
+
                   {/* <a
                     href="#"
                     className="ml-5 flex-shrink-0 bg-white rounded-full p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -169,10 +175,12 @@ function NavBar() {
                   <a
                     key={item.name}
                     href={item.href}
-                    aria-current={item.current ? 'page' : undefined}
+                    aria-current={item.current ? "page" : undefined}
                     className={classNames(
-                      item.current ? 'bg-gray-100 text-gray-900' : 'hover:bg-gray-50',
-                      'block rounded-md py-2 px-3 text-base font-medium'
+                      item.current
+                        ? "bg-gray-100 text-gray-900"
+                        : "hover:bg-gray-50",
+                      "block rounded-md py-2 px-3 text-base font-medium"
                     )}
                   >
                     {item.name}
@@ -182,11 +190,19 @@ function NavBar() {
               <div className="border-t border-gray-200 pt-4 pb-3">
                 <div className="max-w-3xl mx-auto px-4 flex items-center sm:px-6">
                   <div className="flex-shrink-0">
-                    <img className="h-10 w-10 rounded-full" src={user.imageUrl} alt="" />
+                    <img
+                      className="h-10 w-10 rounded-full"
+                      src={user.imageUrl}
+                      alt=""
+                    />
                   </div>
                   <div className="ml-3">
-                    <div className="text-base font-medium text-gray-800">{user.name}</div>
-                    <div className="text-sm font-medium text-gray-500">{user.email}</div>
+                    <div className="text-base font-medium text-gray-800">
+                      {user.name}
+                    </div>
+                    <div className="text-sm font-medium text-gray-500">
+                      {user.email}
+                    </div>
                   </div>
                   <button
                     type="button"
@@ -213,14 +229,9 @@ function NavBar() {
         )}
       </Popover>
     </>
-  )
+  );
 }
 
+const mapStateToProps = (state) => ({});
 
-const mapStateToProps = state=>({
-
-})
-
-export default connect(mapStateToProps, {
-
-})(NavBar)
+export default connect(mapStateToProps, {})(NavBar);

@@ -3,13 +3,9 @@ import { useEffect } from "react";
 import { connect } from "react-redux";
 import { get_blog_list, get_blog_list_page } from "redux/actions/blog";
 import BlogCard from "./BlogCard";
-import BlogPaginator from "components/pagination/BlogPaginator";
+import BlogSmallSetPaginator from "components/pagination/BlogSmallSetPaginator";
 
-function BlogList({ 
-  get_blog_list, 
-  get_blog_list_page, 
-  blog_list,
-  count }) {
+function BlogList({ get_blog_list, get_blog_list_page, blog_list, count }) {
   useEffect(() => {
     get_blog_list();
   }, []);
@@ -27,7 +23,11 @@ function BlogList({
                 <BlogCard data={post} />
               ))}
             </div>
-            <BlogPaginator get_blog_list_page={get_blog_list_page} blog_list={blog_list} count={count} />
+            <BlogSmallSetPaginator
+              get_blog_list_page={get_blog_list_page}
+              blog_list={blog_list}
+              count={count}
+            />
           </div>
         </div>
       ) : (

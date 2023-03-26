@@ -1,10 +1,8 @@
-import { combineReducers } from 'redux'
-import blog from './blog'
-import categories from './categories'
-
+import { combineReducers } from "redux";
+import blog from "./blog";
+import categories from "./categories";
 
 export default combineReducers({
-    blog,
-    categories
-})
-
+  blog,
+  categories
+});

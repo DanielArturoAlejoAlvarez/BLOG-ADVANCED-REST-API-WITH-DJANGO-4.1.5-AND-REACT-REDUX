@@ -5,9 +5,7 @@ import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { get_blog } from "redux/actions/blog";
 
-function BlogPost({ 
-  get_blog,
-  post }) {
+function BlogPost({ get_blog, post }) {
   const params = useParams();
   const { slug } = params;
 
@@ -19,9 +17,8 @@ function BlogPost({
 
   return (
     <FullWidthLayout>
-      {
-        post ? (
-          <div className="relative py-16 bg-white overflow-hidden">
+      {post ? (
+        <div className="relative py-16 bg-white overflow-hidden">
           <div className="relative px-4 sm:px-6 lg:px-8">
             <div className="text-lg max-w-prose mx-auto">
               <div className="flex-shrink-0 shadow-md">
@@ -49,10 +46,11 @@ function BlogPost({
             </div>
           </div>
         </div>
-        ) : <BlogSkeletonLoader />
-      }
+      ) : (
+        <BlogSkeletonLoader />
+      )}
     </FullWidthLayout>
-  )
+  );
 }
 
 const mapStateToProps = (state) => ({

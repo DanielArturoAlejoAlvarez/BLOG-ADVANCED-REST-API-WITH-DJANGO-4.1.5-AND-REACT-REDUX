@@ -1,13 +1,13 @@
-import BlogSkeletonLoader from "components/loaders/BlogSkeletonLoader"
-import { connect } from "react-redux"
-import BlogCard from "./BlogCard"
-import BlogPaginator from "components/pagination/BlogPaginator"
+import BlogSkeletonLoader from "components/loaders/BlogSkeletonLoader";
+import { connect } from "react-redux";
+import BlogCard from "./BlogCard";
+import CategorySmallSetPaginator from "components/pagination/CategorySmallSetPaginator";
 
 function CategoryBlogList({
-    get_blog_list_page,
-    blog_list,
-    count,
-    category_id
+  get_blog_list_page,
+  blog_list,
+  count,
+  category_id
 }) {
   return (
     <div>
@@ -23,7 +23,7 @@ function CategoryBlogList({
                   <BlogCard data={post} />
                 ))}
               </div>
-              <BlogPaginator
+              <CategorySmallSetPaginator
                 get_blog_list_page={get_blog_list_page}
                 blog_list={blog_list}
                 count={count}
@@ -36,14 +36,11 @@ function CategoryBlogList({
         <BlogSkeletonLoader />
       )}
     </div>
-  )
+  );
 }
 
+const mapStateToProps = (state) => ({
+  count: state.blog.count
+});
 
-const mapStateToProps = state=>({
-    count: state.blog.count
-})
-
-export default connect(mapStateToProps, {
-
-})(CategoryBlogList)
+export default connect(mapStateToProps, {})(CategoryBlogList);
