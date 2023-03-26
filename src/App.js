@@ -7,6 +7,7 @@ import Blog from "containers/pages/blog/Blog";
 import BlogPost from "containers/pages/blog/BlogPost";
 import About from "containers/pages/About";
 import Contact from "containers/pages/Contact";
+import BlogCategory from "containers/pages/blog/category/BlogCategory";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
 
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/post/:slug" element={<BlogPost />} />
+          <Route path="/blog/categories/:category_id" element={<BlogCategory />} />
         </Routes>
       </Router>
     </Provider>
