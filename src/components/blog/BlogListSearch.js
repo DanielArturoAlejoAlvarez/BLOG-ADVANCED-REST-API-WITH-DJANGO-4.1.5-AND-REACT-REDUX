@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import BlogCard from "./BlogCard";
 import BlogSmallSetPaginator from "components/pagination/BlogSmallSetPaginator";
 
-function BlogList({ get_blog_list_page, blog_list, count }) {
+function BlogListSearch({ get_blog_list_page, blog_list, count }) {
   return (
     <>
       {blog_list ? (
@@ -35,4 +35,4 @@ const mapStateToProps = (state) => ({
   count: state.blog.count
 });
 
-export default connect(mapStateToProps, {})(BlogList);
+export default connect(mapStateToProps, {})(BlogListSearch);
