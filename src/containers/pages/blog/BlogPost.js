@@ -2,7 +2,7 @@ import BlogSkeletonLoader from "components/loaders/BlogSkeletonLoader";
 import FullWidthLayout from "hocs/layouts/FullWidthLayout";
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { get_blog } from "redux/actions/blog";
 
 function BlogPost({ get_blog, post }) {
@@ -29,9 +29,12 @@ function BlogPost({ get_blog, post }) {
                 />
               </div>
               <h1>
-                <span className="block text-base text-center text-indigo-600 font-semibold tracking-wide uppercase">
-                  {post.category.name}
-                </span>
+                <Link to={`/blog/categories/${post.category.id}`}>
+
+                  <span className="block text-base text-center text-indigo-600 font-semibold tracking-wide uppercase">
+                    {post.category.name}
+                  </span>
+                </Link>
                 <span className="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                   {post.title}
                 </span>
