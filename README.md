@@ -602,8 +602,7 @@ export default App;
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/DanielArturoAlejoAlvarez/
-BLOG-ADVANCED-REST-API-WITH-DJANGO-4.1.5-AND-REACT-REDUX. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/DanielArturoAlejoAlvarez/BLOG-ADVANCED-REST-API-WITH-DJANGO-4.1.5-AND-REACT-REDUX. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
